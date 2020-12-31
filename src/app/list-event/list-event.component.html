@@ -1,0 +1,23 @@
+<h2 style="text-align: center;">Events List</h2>
+<table class="table table-primary">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Location</th>
+      <th scope="col">Description</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let e of events">
+    <tr>
+      <td>{{e.id}}</td>
+      <td>{{e.name}}</td>
+      <td>{{e.location}}</td>
+      <td>{{e.description}}</td>
+      <td>{{e.creationDate |date}}</td>
+      <td><a class="btn btn-danger" (click)="deleteEvent(e)">delete</a></td>
+      <td><a class="btn btn-success" [routerLink]="['/updateEvent',e.id]">modify</a></td>
+    </tr>
+  </tbody>
+</table>

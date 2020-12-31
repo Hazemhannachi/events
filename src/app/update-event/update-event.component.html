@@ -1,0 +1,59 @@
+<div class="container">
+  <div>
+    <h2>Modify event :</h2>
+  </div>
+  <form>
+    <div  class="col-sm-2 col-md-2 col-lg-2">
+      <label>ID</label>
+      <input readonly
+        type="text"
+        [(ngModel)]="currentEvent.id"
+        name="idt"
+        class="form-control"
+      />
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Name</label>
+      <input
+        type="text"
+        [(ngModel)]="currentEvent.name"
+        name="nomEvent"
+        class="form-control"
+      />
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>Description</label>
+      <textarea
+        type="text"
+        [(ngModel)]="currentEvent.description"
+        name="description"
+        class="form-control"
+        style="width: 400px;"
+      ></textarea>
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>Location</label>
+      <input
+        type="text"
+        [(ngModel)]="currentEvent.location"
+        name="location"
+        class="form-control"
+      />
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Date création</label>
+      <input
+        type="date"
+        [ngModel]="currentEvent.creationDate | date: 'yyyy-MM-dd'"
+        (ngModelChange)="currentEvent.creationDate = $event"
+        name="dateCreation"
+        class="form-control"
+      />
+    </div>
+    <div class="mt-2">
+      <button type="submit" (click)="updateEvent()" class="btn btn-success">
+        Modify
+      </button>
+    </div>
+  </form>
+</div>
